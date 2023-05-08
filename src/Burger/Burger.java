@@ -43,12 +43,32 @@ public class Burger {
     
             switch (breadOption) {
                 case 1:
-                    
-                    break;
-            
-                default:
-                    break;
+                    setBread("White");
+
+                break;
+
+                case 2:
+                    setBread("Sesame");
+
+                break;
+
+                case 3:
+                    setBread("Chapata");
+
+                break;
+
+                case 4:
+                    setBread("Brioche");
+
+                break;
+
+                case 5:
+                    setBread("Pretzel");
+
+                break;
             }
+            
+            burgerUnit.add(bread);
         }
     }
 
