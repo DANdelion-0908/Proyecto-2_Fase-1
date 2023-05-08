@@ -37,17 +37,18 @@ public class Burger {
         System.out.println("4. Pan brioche.");
         System.out.println("5. Pan pretzel. \n");
     
-        int breadOption = inputScanner.nextInt();
         System.out.print("Tu opción:");
+        int breadOption = inputScanner.nextInt();
+        System.out.println("");
     
         switch (breadOption) {
             case 1:
-                setBread("White");
+                setBread("Blanco");
             
             break;
 
             case 2:
-                setBread("Sesame");
+                setBread("Sésamo");
 
             break;
 
@@ -67,7 +68,7 @@ public class Burger {
             break;
             
         }
-            
+            System.out.println("Haz seleccionado Pan " + getBread() + " como tu preferido.");
             burgerUnit.add(bread);
     }
 
