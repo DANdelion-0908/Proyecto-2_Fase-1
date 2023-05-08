@@ -1,8 +1,10 @@
 package Burger;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Burger {
+    Scanner inputScanner = new Scanner(System.in);
  
     private String bread;
     private String  meat; 
@@ -22,6 +24,33 @@ public class Burger {
     private String beacon;
 
     private ArrayList<String> burgerUnit = new ArrayList<>();
+    
+    private boolean breadKey;
+
+    public void BreadSelection() {
+
+        while(breadKey){
+
+            System.out.println("¿Qué clase de pan prefieres?");
+            System.out.println("1. Pan blanco o tradicional.");
+            System.out.println("2. Pan con semillas de sésamo.");
+            System.out.println("3. Pan chapata.");
+            System.out.println("4. Pan brioche.");
+            System.out.println("5. Pan pretzel. \n");
+    
+            int breadOption = inputScanner.nextInt();
+            System.out.print("Tu opción:");
+    
+            switch (breadOption) {
+                case 1:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    }
 
 
 
