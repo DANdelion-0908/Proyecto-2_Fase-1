@@ -24,84 +24,55 @@ public class Burger {
     private String beacon;
 
     private ArrayList<String> burgerUnit = new ArrayList<>();
-    
-    private boolean breadKey;
 
+/**
+ * This function prompts the user to select a type of bread for a burger and adds it to the burger
+ * object.
+ */
     public void BreadSelection() {
-
-        while(breadKey){
-
-            System.out.println("¿Qué clase de pan prefieres?");
-            System.out.println("1. Pan blanco o tradicional.");
-            System.out.println("2. Pan con semillas de sésamo.");
-            System.out.println("3. Pan chapata.");
-            System.out.println("4. Pan brioche.");
-            System.out.println("5. Pan pretzel. \n");
+        System.out.println("¿Qué clase de pan prefieres?");
+        System.out.println("1. Pan blanco o tradicional.");
+        System.out.println("2. Pan con semillas de sésamo.");
+        System.out.println("3. Pan chapata.");
+        System.out.println("4. Pan brioche.");
+        System.out.println("5. Pan pretzel. \n");
     
-            int breadOption = inputScanner.nextInt();
-            System.out.print("Tu opción:");
+        int breadOption = inputScanner.nextInt();
+        System.out.print("Tu opción:");
     
-            switch (breadOption) {
-                case 1:
-                    setBread("White");
+        switch (breadOption) {
+            case 1:
+                setBread("White");
+            
+            break;
 
-                break;
+            case 2:
+                setBread("Sesame");
 
-                case 2:
-                    setBread("Sesame");
+            break;
 
-                break;
+            case 3:
+                setBread("Chapata");
 
-                case 3:
-                    setBread("Chapata");
+            break;
 
-                break;
+            case 4:
+                setBread("Brioche");
 
-                case 4:
-                    setBread("Brioche");
+            break;
 
-                break;
+            case 5:
+                setBread("Pretzel");
 
-                case 5:
-                    setBread("Pretzel");
-
-                break;
-            }
+            break;
+            
+        }
             
             burgerUnit.add(bread);
-        }
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String getBread() {
         return bread;
     }
