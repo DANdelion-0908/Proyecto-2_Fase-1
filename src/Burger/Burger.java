@@ -7,7 +7,7 @@ public class Burger {
     Scanner inputScanner = new Scanner(System.in);
  
     private String bread;
-    private String meat; 
+    private String  meat; 
     private String tomato;
     private String lettuce;
     private String onion;
@@ -72,77 +72,31 @@ public class Burger {
         burgerUnit.add(bread);
     }
 
-/**
- * This function prompts the user to select the type of meat for a burguer and adds it to the burger
- * object.
- */
-public void MeatSelection() {
-    System.out.println("¿Qué tipo de carne prefieres?");
-    System.out.println("1. Carne de res.");
-    System.out.println("2. Carne de cerdo.");
-    System.out.println("3. Pollo.");
-    System.out.println("4. Pescado. \n");
+    public void MeatSelection() {
+        System.out.println("¿Qué clase de carne prefieres?");
+        System.out.println("1. Carne de Res.");
+        System.out.println("2. Carne de Pollo.");
 
-    System.out.print("Tu opción:");
-    int meatOption = inputScanner.nextInt();
-    System.out.println("");
+        System.out.print("Tu opción:");
+        int meatOption = inputScanner.nextInt();
+        System.out.println("");
 
-    switch (meatOption) {
-        case 1:
-            setMeat("Res");
-        
-        break;
+        switch(meatOption) {
+            case 1:
+                setMeat("Res");
 
-        case 2:
-            setMeat("Cerdo");
+            break;
 
-        break;
+            case 2:
+                setMeat("Pollo");
 
-        case 3:
-            setMeat("Pollo");
+            break;
+        }
 
-        break;
-
-        case 4:
-            setMeat("Pescado");
-
-        break;
-        
-    }
-        System.out.println("Haz seleccionado Carne de " + getBread() + " como tu preferido.");
+        System.out.println("Has seleccionado Carne de " + getMeat() + " como tu preferida.");
         burgerUnit.add(meat);
-}
-
-/**
- * This function prompts the user to select thecondiments such as sauces and other extras for a burguer and adds it to the burger
- * object.
- */
-public void CondimentSelection() {
-    System.out.println("¿Qué tipo de ingredientes extra prefieres?");
-    System.out.println("1. Salsas.");
-    System.out.println("2. Condimentos extra. \n");
-
-    System.out.print("Tu opción:");
-    int condOption = inputScanner.nextInt();
-    System.out.println("");
-
-    switch (condOption) {
-        case 1:
-            setSauce(true);
-            System.out.println("Haz seleccionado salsas como tu preferido.");
-            burgerUnit.add("Salsas");
-
-        break;
-
-        case 2:
-            setExtras(true);
-            System.out.println("Haz seleccionado condimentos extra como tu preferido.");
-            burgerUnit.add("Extras");
-
-        break;
-        
     }
-}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String getBread() {
