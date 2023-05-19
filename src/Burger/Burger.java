@@ -143,6 +143,17 @@ public void VegetablesSelection() {
     }
 }
 
+public void showMenu() {
+    new ShowBurger(burgerUnit);
+
+}
+
+public String showRecommendation() {
+    RecommendBurger makeRecommendation = new RecommendBurger();
+
+    return makeRecommendation.CreatedBurger(burgerUnit);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String getBread() {
         return bread;

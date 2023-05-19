@@ -21,8 +21,11 @@ public class App {
 
         createBurger.BreadSelection();
         createBurger.MeatSelection();
-        createBurger.CondimentSelection();
+        createBurger.VegetablesSelection();
+        createBurger.showMenu();
 
-        
+        System.out.println("");
+
+        System.out.println("La hamburguesa que te recomendamos en base a tus gustos es: " + createBurger.showRecommendation());
     }
 }
