@@ -17,8 +17,12 @@ public class App {
 
         System.out.println("Responde a las preguntas que te parecerán a continuación para recomendarte una hamburguesa. \n");
 
-        Burger getBread = new Burger();
+        Burger createBurger = new Burger();
 
-        getBread.BreadSelection();
+        createBurger.BreadSelection();
+        createBurger.MeatSelection();
+        createBurger.CondimentSelection();
+
+        
     }
 }
