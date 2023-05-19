@@ -65,11 +65,36 @@ public class Burger {
             case 5:
                 setBread("Pretzel");
 
-            break;
-            
+            break;  
         }
-            System.out.println("Haz seleccionado Pan " + getBread() + " como tu preferido.");
-            burgerUnit.add(bread);
+        
+        System.out.println("Haz seleccionado Pan " + getBread() + " como tu preferido.");
+        burgerUnit.add(bread);
+    }
+
+    public void MeatSelection() {
+        System.out.println("¿Qué clase de carne prefieres?");
+        System.out.println("1. Carne de Res.");
+        System.out.println("2. Carne de Pollo.");
+
+        System.out.print("Tu opción:");
+        int meatOption = inputScanner.nextInt();
+        System.out.println("");
+
+        switch(meatOption) {
+            case 1:
+                setMeat("Res");
+
+            break;
+
+            case 2:
+                setMeat("Pollo");
+
+            break;
+        }
+
+        System.out.println("Has seleccionado Carne de " + getMeat() + " como tu preferida.");
+        burgerUnit.add(meat);
     }
 
 
