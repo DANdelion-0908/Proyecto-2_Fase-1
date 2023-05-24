@@ -9,14 +9,45 @@
  * -------------------------------------------------
  */
 
- import java.io.PrintWriter;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import Burger.Burger;
 import DataBase.EmbeddedNeo4j;
 
 public class App {
+
     public static void main(String[] args) {
+
+        Burger createBurger = new Burger();
+
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.println("Algoritmo de Recomendación de Hamburguesas \n");
+        
+        System.out.println("Menú Principal \n");
+            System.out.println("Selecciona la opción que desees realizar: \n");
+            System.out.println("1. Recomendarme una Hamburguesa.");
+            System.out.println("2. Mostrar todas las hamburguesas.");
+            System.out.println("3. Salir. \n");
+            
+            System.out.print("Tu opción: ");
+            int mainOpt = inputScanner.nextInt();
+            System.out.println("");
+            
+            if(mainOpt == 1) {
+                System.out.println("Responde a las preguntas que te parecerán a continuación para recomendarte una hamburguesa. \n");
+                createBurger.BreadSelection();
+                createBurger.MeatSelection();
+                createBurger.VegetablesSelection();
+                createBurger.showMenu();
+                System.out.println("La hamburguesa que te recomendamos en base a tus gustos es: " + createBurger.showRecommendation());
+
+            } else if(mainOpt == 2) {
+
+            } else if(mainOpt == 3) {
+                System.exit(0);
+            }
 
         try ( EmbeddedNeo4j db = new EmbeddedNeo4j( "bolt://3.236.163.127:7687", "neo4j", "alphabets-slopes-conn" ) ) {
             
@@ -45,36 +76,11 @@ public class App {
                 System.out.println(wdBurgers.get(i));
             }
             
-            /*for(String string : myactors) {
-                LinkedList<String> myMovies = db.getMoviesByActor(string);
-                System.out.println(string + " ha actuado en: "+ myMovies);
-            }
-            */
             System.out.println("");
-            
-            //db.insertMovie("Kingsman", 2016, "XD");
-            
-            //System.out.println("Película agregada exitosamente.");
            
        } catch (Exception e) {
            e.printStackTrace();
        }
-
-       /* 
-       System.out.println("Algoritmo de Recomendación de Hamburguesas \n");
-       
-       System.out.println("Responde a las preguntas que te parecerán a continuación para recomendarte una hamburguesa. \n");
-       
-        Burger createBurger = new Burger();
-
-        createBurger.BreadSelection();
-        createBurger.MeatSelection();
-        createBurger.VegetablesSelection();
-        createBurger.showMenu();
-
-        System.out.println("");
-
-        System.out.println("La hamburguesa que te recomendamos en base a tus gustos es: " + createBurger.showRecommendation());
-        */
+       inputScanner.close();
     }
 }

@@ -8,8 +8,6 @@ import org.neo4j.driver.Result;
 import org.neo4j.driver.Session;
 import org.neo4j.driver.Transaction;
 import org.neo4j.driver.TransactionWork;
-import org.neo4j.driver.summary.ResultSummary;
-
 import static org.neo4j.driver.Values.parameters;
 
 import java.util.LinkedList;
@@ -141,7 +139,7 @@ public class EmbeddedNeo4j implements AutoCloseable{
                 @Override
                 public LinkedList<String> execute( Transaction tx )
                 {
-                    Result result = tx.run( "MATCH (res:Restaurant {name: \"" + name + "\"})-[:Ofrece]->(Burger) RETURN Burger.name");
+                    Result result = tx.run( "MATCH p=()-[:Ofrece]->() RETURN p");
                     LinkedList<String> myBurgers = new LinkedList<String>();
                     List<Record> registros = result.list();
                     for (int i = 0; i < registros.size(); i++) {
