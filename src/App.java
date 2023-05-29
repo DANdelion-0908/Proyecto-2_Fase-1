@@ -9,6 +9,7 @@
  * -------------------------------------------------
  */
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -42,45 +43,55 @@ public class App {
                 createBurger.VegetablesSelection();
                 createBurger.showMenu();
                 System.out.println("La hamburguesa que te recomendamos en base a tus gustos es: " + createBurger.showRecommendation());
+                System.out.println();
 
             } else if(mainOpt == 2) {
+            	try ( EmbeddedNeo4j db = new EmbeddedNeo4j( "bolt://54.174.202.194:7687", "neo4j", "beginner-lieutenants-haul" ) ) {
+                    
+                	LinkedList<String> mcBurgers = db.getMcBurgers();
+                	
+                	System.out.println("La prueba es: \n");
+                	
+                	ArrayList<String> test = db.getIngredients();
+                	for(int i = 0; i < test.size(); i++) {
+                		System.out.println(test.get(i));
+                	}
+                	
+                	System.out.println("Las Hamburguesas ofrecidas por McDonald's son: \n");
+                    
+                    for (int i = 0; i < mcBurgers.size(); i++) {
+                        System.out.println(mcBurgers.get(i));
+                    }
+                    
+                    System.out.println("");
+                    
+                    LinkedList<String> dpBurgers = db.getDpBurgers();
+                	System.out.println("Las Hamburguesas ofrecidas por DelPuente son: \n");
+                    
+                    for (int i = 0; i < dpBurgers.size(); i++) {
+                        System.out.println(dpBurgers.get(i));
+                    }
+                    
+                    System.out.println("");
+                    
+                    LinkedList<String> wdBurgers = db.getWdBurgers();
+                	System.out.println("Las Hamburguesas ofrecidas por Wendy's son: \n");
+                    
+                    for (int i = 0; i < wdBurgers.size(); i++) {
+                        System.out.println(wdBurgers.get(i));
+                    }
+                    
+                    System.out.println("");
 
+            	} catch (Exception e) {
+            		e.printStackTrace();
+            	}
+            	
             } else if(mainOpt == 3) {
+            	System.out.println("Saliendo...");
                 System.exit(0);
             }
-
-        try ( EmbeddedNeo4j db = new EmbeddedNeo4j( "bolt://3.236.163.127:7687", "neo4j", "alphabets-slopes-conn" ) ) {
             
-        	LinkedList<String> mcBurgers = db.getMcBurgers();
-        	System.out.println("Las Hamburguesas ofrecidas por McDonald's son: \n");
-            
-            for (int i = 0; i < mcBurgers.size(); i++) {
-                System.out.println(mcBurgers.get(i));
-            }
-            
-            System.out.println("");
-            
-            LinkedList<String> dpBurgers = db.getDpBurgers();
-        	System.out.println("Las Hamburguesas ofrecidas por DelPuente son: \n");
-            
-            for (int i = 0; i < dpBurgers.size(); i++) {
-                System.out.println(dpBurgers.get(i));
-            }
-            
-            System.out.println("");
-            
-            LinkedList<String> wdBurgers = db.getWdBurgers();
-        	System.out.println("Las Hamburguesas ofrecidas por Wendy's son: \n");
-            
-            for (int i = 0; i < wdBurgers.size(); i++) {
-                System.out.println(wdBurgers.get(i));
-            }
-            
-            System.out.println("");
-           
-       } catch (Exception e) {
-           e.printStackTrace();
-       }
        inputScanner.close();
     }
 }

@@ -10,6 +10,7 @@ import org.neo4j.driver.Transaction;
 import org.neo4j.driver.TransactionWork;
 import static org.neo4j.driver.Values.parameters;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -102,6 +103,8 @@ public class EmbeddedNeo4j implements AutoCloseable{
              return dpBurgers;
          }
     }
+    
+    
 
     public LinkedList<String> getWdBurgers()
     {
@@ -128,31 +131,27 @@ public class EmbeddedNeo4j implements AutoCloseable{
          }
     }
     
-    public LinkedList<String> getAllBurgers(String name)
-    {
-   	 try ( Session session = driver.session() )
-        {
-   		 
-   		 
-   		 LinkedList<String> burgers = session.readTransaction( new TransactionWork<LinkedList<String>>()
-            {
-                @Override
-                public LinkedList<String> execute( Transaction tx )
-                {
-                    Result result = tx.run( "MATCH p=()-[:Ofrece]->() RETURN p");
-                    LinkedList<String> myBurgers = new LinkedList<String>();
-                    List<Record> registros = result.list();
-                    for (int i = 0; i < registros.size(); i++) {
-                   	 myBurgers.add(registros.get(i).get("Burger.name").asString());
-                    }
-                    
-                    return myBurgers;
-                }
-            } );
-            
-            return burgers;
-        }
-   }
+    public ArrayList<String> getIngredients() {
+    	
+    	try ( Session session = driver.session() ) {
+    		ArrayList<String> ingredients = session.readTransaction (new TransactionWork<ArrayList<String>>( ) {
+
+				@Override
+				public ArrayList<String> execute(Transaction tx) {
+					Result result = tx.run( "MATCH p=(b:McBurger)-[r:Lleva]->(i:Ingredient) RETURN i.name");
+					ArrayList<String> mcBurgersIngredients = new ArrayList<String>();
+					List<Record> registros = result.list();
+					for (int i = 0; i < registros.size(); i++) {
+						
+						mcBurgersIngredients.add(registros.get(i).get("i.name").asString());
+					}	
+					return mcBurgersIngredients;
+				}
+    		} );
+    		
+    		return ingredients;
+    	}
+    }
     
     public String insertMovie(String title, int releaseYear, String tagline) {
     	try ( Session session = driver.session() ) {

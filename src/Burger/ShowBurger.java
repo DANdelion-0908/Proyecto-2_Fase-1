@@ -12,5 +12,7 @@ public class ShowBurger {
             System.out.println(i + ". " + string);
             i++;
         }
+        
+        System.out.println("");
     }
 }

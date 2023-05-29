@@ -33,9 +33,7 @@ public class Burger {
         System.out.println("¿Qué clase de pan prefieres?");
         System.out.println("1. Pan blanco o tradicional.");
         System.out.println("2. Pan con semillas de sésamo.");
-        System.out.println("3. Pan chapata.");
-        System.out.println("4. Pan brioche.");
-        System.out.println("5. Pan pretzel. \n");
+        System.out.println("3. Pan artesanal");
     
         System.out.print("Tu opción:");
         int breadOption = inputScanner.nextInt();
@@ -53,17 +51,7 @@ public class Burger {
             break;
 
             case 3:
-                setBread("Chapata");
-
-            break;
-
-            case 4:
-                setBread("Brioche");
-
-            break;
-
-            case 5:
-                setBread("Pretzel");
+                setBread("Tradicional");
 
             break;    
         }
@@ -79,9 +67,8 @@ public class Burger {
 public void MeatSelection() {
     System.out.println("¿Qué tipo de carne prefieres?");
     System.out.println("1. Carne de res.");
-    System.out.println("2. Carne de cerdo.");
-    System.out.println("3. Pollo.");
-    System.out.println("4. Pescado. \n");
+    System.out.println("2. Carne Angus.");
+    System.out.println("3. Carne de Pollo.");
 
     System.out.print("Tu opción:");
     int meatOption = inputScanner.nextInt();
@@ -94,19 +81,14 @@ public void MeatSelection() {
         break;
 
         case 2:
-            setMeat("Cerdo");
+            setMeat("Angus");
 
         break;
 
         case 3:
             setMeat("Pollo");
 
-        break;
-
-        case 4:
-            setMeat("Pescado");
-
-        break;   
+        break; 
     }
     
     System.out.println("Haz seleccionado Carne de " + getMeat() + " como tu preferida. \n");
@@ -124,16 +106,69 @@ public void VegetablesSelection() {
 
     switch (vegetablesOption) {
         case 1:
-
-            setTomato("Tomate");
-            setLettuce("Lechuga");
-            setOnion("Cebolla");
-
-            burgerUnit.add(tomato);
-            burgerUnit.add(lettuce);
-            burgerUnit.add(onion);
-
-            System.out.println("Has añadido vegetales. \n");
+        	System.out.println("¿Deseas agregar tomate?");
+        	System.out.println("1. Si.");
+        	System.out.println("2. No.");
+        	
+        	System.out.print("Tu opción: ");
+        	int tomatoOptions = inputScanner.nextInt();
+        	System.out.println();
+        	
+        	switch (tomatoOptions) {
+        	case 1:
+        		setTomato("Tomate");
+        		burgerUnit.add(tomato);
+        		
+        	break;
+        	
+        	case 2:
+        		System.out.println("No agregaste tomate");
+        		
+        	break;
+        	}
+        	
+        	System.out.println("¿Deseas agregar lechuga?");
+        	System.out.println("1. Si.");
+        	System.out.println("2. No.");
+        	
+        	System.out.print("Tu opción: ");
+        	int lettuceOptions = inputScanner.nextInt();
+        	System.out.println();
+        	
+        	switch (lettuceOptions) {
+        	case 1:
+        		setLettuce("Lechuga");
+        		burgerUnit.add(lettuce);
+        		
+        	break;
+        	
+        	case 2:
+        		System.out.println("No agregaste lechuga");
+        		
+        	break;
+        	}
+        	
+        	System.out.println("¿Deseas agregar cebolla?");
+        	System.out.println("1. Si.");
+        	System.out.println("2. No.");
+        	
+        	System.out.print("Tu opción: ");
+        	int onionOptions = inputScanner.nextInt();
+        	System.out.println();
+        	
+        	switch (onionOptions) {
+        	case 1:
+        		setOnion("Cebolla");
+        		burgerUnit.add(onion);
+        		
+        	break;
+        	
+        	case 2:
+        		System.out.println("No agregaste cebolla");
+        		
+        	break;
+        	}
+        	
         break;
     
         case 2:
@@ -155,6 +190,7 @@ public String showRecommendation() {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public String getBread() {
         return bread;
     }
