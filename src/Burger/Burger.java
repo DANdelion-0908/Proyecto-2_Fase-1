@@ -1,29 +1,22 @@
 package Burger;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Burger {
     Scanner inputScanner = new Scanner(System.in);
  
     private String bread;
-    private String  meat; 
+    private String meat;
     private String tomato;
     private String lettuce;
     private String onion;
-
-    private boolean sauce;
-    private String ketchup;
-    private String mayonnaise;
-    private String mustard;
-    private String spicy;
-    private String bbq;
-
-    private boolean extras;
-    private String egg;
-    private String beacon;
+    private String cheese;
 
     private ArrayList<String> burgerUnit = new ArrayList<>();
+    
+    private HashMap<String, ArrayList<String>> burgersIngredients = new HashMap<>();
 
 /**
  * This function prompts the user to select a type of bread for a burger and adds it to the burger
@@ -41,22 +34,22 @@ public class Burger {
     
         switch (breadOption) {
             case 1:
-                setBread("Blanco");
+                setBread("Pan Blanco");
             
             break;
 
             case 2:
-                setBread("Sésamo");
+                setBread("Pan con Semillas de Sésamo");
 
             break;
 
             case 3:
-                setBread("Tradicional");
+                setBread("Pan Artesanal");
 
             break;    
         }
         
-        System.out.println("Haz seleccionado Pan " + getBread() + " como tu preferido. \n");
+        System.out.println("Haz seleccionado " + getBread() + " como tu preferido. \n");
         burgerUnit.add(bread);
     }
 
@@ -76,23 +69,58 @@ public void MeatSelection() {
 
     switch (meatOption) {
         case 1:
-            setMeat("Res");
+            setMeat("Carne de Res");
         
         break;
 
         case 2:
-            setMeat("Angus");
+            setMeat("Carne Angus");
 
         break;
 
         case 3:
-            setMeat("Pollo");
+            setMeat("Carne de Pollo");
 
         break; 
     }
     
-    System.out.println("Haz seleccionado Carne de " + getMeat() + " como tu preferida. \n");
+    System.out.println("Haz seleccionado " + getMeat() + " como tu preferida. \n");
     burgerUnit.add(meat);
+}
+
+public void CheeseSelection() {
+	System.out.println("¿Qué tipo de queso prefieres?");
+    System.out.println("1. Queso Cheddar.");
+    System.out.println("2. Queso Emmental.");
+    System.out.println("3. Queso Americano.");
+    System.out.println("4. Queso Blanco.");
+
+    System.out.print("Tu opción:");
+    int cheeseOption = inputScanner.nextInt();
+    System.out.println("");
+
+    switch (cheeseOption) {
+        case 1:
+            setCheese("Queso Cheddar");
+        
+        break;
+
+        case 2:
+            setCheese("queso Emmental");
+
+        break;
+
+        case 3:
+            setCheese("Queso Americano");
+
+        break; 
+        
+        case 4:
+        	setCheese("Queso Blanco");
+    }
+    
+    System.out.println("Haz seleccionado " + getCheese() + " como tu preferida. \n");
+    burgerUnit.add(cheese);
 }
 
 public void VegetablesSelection() {
@@ -183,10 +211,15 @@ public void showMenu() {
 
 }
 
-public String showRecommendation() {
-    RecommendBurger makeRecommendation = new RecommendBurger();
+public void getMap(HashMap<String, ArrayList<String>> burgers) {
+	
+	burgersIngredients = burgers;
+}
 
-    return makeRecommendation.CreatedBurger(burgerUnit);
+public ArrayList<String> showRecommendation() {
+    RecommendBurger makeRecommendation = new RecommendBurger();
+    
+    return makeRecommendation.recommendBurger(burgerUnit, burgersIngredients);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -221,58 +254,10 @@ public String showRecommendation() {
     public void setOnion(String onion) {
         this.onion = onion;
     }
-    public boolean isSauce() {
-        return sauce;
+    public void setCheese(String cheese) {
+    	this.cheese = cheese;
     }
-    public void setSauce(boolean sauce) {
-        this.sauce = sauce;
-    }
-    public String getKetchup() {
-        return ketchup;
-    }
-    public void setKetchup(String ketchup) {
-        this.ketchup = ketchup;
-    }
-    public String getMayonnaise() {
-        return mayonnaise;
-    }
-    public void setMayonnaise(String mayonnaise) {
-        this.mayonnaise = mayonnaise;
-    }
-    public String getMustard() {
-        return mustard;
-    }
-    public void setMustard(String mustard) {
-        this.mustard = mustard;
-    }
-    public String getSpicy() {
-        return spicy;
-    }
-    public void setSpicy(String spicy) {
-        this.spicy = spicy;
-    }
-    public String getBbq() {
-        return bbq;
-    }
-    public void setBbq(String bbq) {
-        this.bbq = bbq;
-    }
-    public boolean isExtras() {
-        return extras;
-    }
-    public void setExtras(boolean extras) {
-        this.extras = extras;
-    }
-    public String getEgg() {
-        return egg;
-    }
-    public void setEgg(String egg) {
-        this.egg = egg;
-    }
-    public String getBeacon() {
-        return beacon;
-    }
-    public void setBeacon(String beacon) {
-        this.beacon = beacon;
+    public String getCheese() {
+    	return cheese;
     }
 }

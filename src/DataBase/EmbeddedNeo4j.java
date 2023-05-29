@@ -103,8 +103,6 @@ public class EmbeddedNeo4j implements AutoCloseable{
              return dpBurgers;
          }
     }
-    
-    
 
     public LinkedList<String> getWdBurgers()
     {
@@ -131,14 +129,14 @@ public class EmbeddedNeo4j implements AutoCloseable{
          }
     }
     
-    public ArrayList<String> getIngredients() {
+    public ArrayList<String> getIngredients(String label, String name) {
     	
     	try ( Session session = driver.session() ) {
     		ArrayList<String> ingredients = session.readTransaction (new TransactionWork<ArrayList<String>>( ) {
 
 				@Override
 				public ArrayList<String> execute(Transaction tx) {
-					Result result = tx.run( "MATCH p=(b:McBurger)-[r:Lleva]->(i:Ingredient) RETURN i.name");
+					Result result = tx.run( "MATCH p = (b: " + label + "{name: " + '"' + name + '"' + "})-[r:Lleva]->(i:Ingredient) RETURN i.name");
 					ArrayList<String> mcBurgersIngredients = new ArrayList<String>();
 					List<Record> registros = result.list();
 					for (int i = 0; i < registros.size(); i++) {
@@ -148,7 +146,6 @@ public class EmbeddedNeo4j implements AutoCloseable{
 					return mcBurgersIngredients;
 				}
     		} );
-    		
     		return ingredients;
     	}
     }
@@ -175,5 +172,4 @@ public class EmbeddedNeo4j implements AutoCloseable{
         	return e.getMessage();
         }
     }
-
 }
