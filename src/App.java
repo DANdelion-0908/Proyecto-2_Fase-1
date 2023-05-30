@@ -106,9 +106,25 @@ public class App {
                 
                 System.out.println("-------------------------------------------------\n");
                 
-                int maxBurger = makeRecommendation.getMaxValue();
+                System.out.printf("La hamburguesa con la mayor cantidad de coincidencias es: %s con %d puntos.", makeRecommendation.getMaxValueKey(), makeRecommendation.getMaxValue() + "\n");
                 
-                System.out.printf("La hamburguesa con la mayor cantidad de coincidencias es: %s con %d puntos.", makeRecommendation.getMaxValueKey(), makeRecommendation.getMaxValue());
+                System.out.println("¿Desea volver al menú prinpal?\n");
+                
+                System.out.println("1. Volver al Menú.");
+                System.out.println("2. Salir \n");
+                
+                System.out.print("Tu opción: ");
+                int lastOpt = inputScanner.nextInt();
+                System.out.println("");
+                
+                switch(lastOpt) {
+                	case 1:
+                		App.main(args);
+                	break;
+                	
+                	case 2:
+                		System.exit(0);
+                }
 
             } else if(mainOpt == 2) {
             	try ( EmbeddedNeo4j db = new EmbeddedNeo4j( "bolt://54.174.202.194:7687", "neo4j", "beginner-lieutenants-haul" ) ) {
@@ -176,6 +192,9 @@ public class App {
             } else if(mainOpt == 3) {
             	System.out.println("Saliendo...");
                 System.exit(0);
+            } else {
+            	System.out.println("Ingresa una opción válida\n");
+            	App.main(args);
             }
             
        inputScanner.close();

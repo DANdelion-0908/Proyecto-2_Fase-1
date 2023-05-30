@@ -46,8 +46,8 @@ public class RecommendBurger {
     }
     
     public  String getMaxValueKey() {
-        int maxValue = Integer.MIN_VALUE; // Valor inicial mínimo
-        String maxValueKey = null; // Clave correspondiente al valor máximo
+        int maxValue = Integer.MIN_VALUE; 
+        String maxValueKey = null; 
 
         for (Map.Entry<String, Integer> entry : selectBurgers.entrySet()) {
             String key = entry.getKey();
