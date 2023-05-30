@@ -108,7 +108,7 @@ public class App {
                 
                 System.out.printf("La hamburguesa con la mayor cantidad de coincidencias es: %s con %d puntos.\n\n", makeRecommendation.getMaxValueKey(), makeRecommendation.getMaxValue());
                 
-                System.out.println("¿Desea volver al menú prinpal?\n");
+                System.out.println("¿Desea volver al menú principal?\n");
                 
                 System.out.println("1. Volver al Menú.");
                 System.out.println("2. Salir \n");
