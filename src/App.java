@@ -30,13 +30,15 @@ public class App {
         
         Scanner inputScanner = new Scanner(System.in);
 
-        System.out.println("Algoritmo de Recomendación de Hamburguesas \n");
+        System.out.println("----------------------------------------------");
+        System.out.println("| Algoritmo de Recomendación de Hamburguesas |");
+        System.out.println("----------------------------------------------\n");
         
         System.out.println("Menú Principal \n");
-            System.out.println("Selecciona la opción que desees realizar: \n");
-            System.out.println("1. Recomendarme una Hamburguesa.");
-            System.out.println("2. Mostrar todas las hamburguesas.");
-            System.out.println("3. Salir. \n");
+        System.out.println("Selecciona la opción que desees realizar: \n");
+        System.out.println("1. Recomendarme una Hamburguesa.");
+        System.out.println("2. Mostrar todas las hamburguesas.");
+        System.out.println("3. Salir. \n");
             
             System.out.print("Tu opción: ");
             int mainOpt = inputScanner.nextInt();
@@ -164,6 +166,8 @@ public class App {
                     System.out.println("Los ingredientes de cada hamburguesa son: \n");
                 	
                 	burgersHashMap.showMap();
+                	
+                	App.main(args);
 
             	} catch (Exception e) {
             		e.printStackTrace();
