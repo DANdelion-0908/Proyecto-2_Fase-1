@@ -5,4 +5,4 @@ Repositorio que contendrá el código relacionado con el segundo proyecto del cu
 ## Integrantes
 
 - Héctor Daniel Penedo Juarez, 22217
-- José Ángel Morales Farfán, [Inserte Carné]
+- José Ángel Morales Farfán, 22689
