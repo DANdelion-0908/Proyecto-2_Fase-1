@@ -66,15 +66,8 @@ public class RecommendBurger {
 		return selectBurgers;
 	}
 
-	public void setSelectBurgers(HashMap<String, Integer> selectBurgers) {
-		this.selectBurgers = selectBurgers;
-	}
-
 	public ArrayList<String> getBurgersToRecommend() {
 		return burgersToRecommend;
 	}
 
-	public void setBurgersToRecommend(ArrayList<String> burgersToReommend) {
-		this.burgersToRecommend = burgersToReommend;
-	}
 }
