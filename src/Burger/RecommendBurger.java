@@ -33,21 +33,10 @@ public class RecommendBurger {
     	return selectBurgers;
     }
     
-    public int getMaxValue() {
+    public HashMap<String, Integer> getMax() {
         int maxValue = Integer.MIN_VALUE; 
-
-        for (int value : selectBurgers.values()) {
-            if (value > maxValue) {
-                maxValue = value;
-            }
-        }
-
-        return maxValue;
-    }
-    
-    public  String getMaxValueKey() {
-        int maxValue = Integer.MIN_VALUE; 
-        String maxValueKey = null; 
+        String maxValueKey = null;
+        HashMap<String, Integer> maxSet = new HashMap<>();
 
         for (Map.Entry<String, Integer> entry : selectBurgers.entrySet()) {
             String key = entry.getKey();
@@ -58,23 +47,58 @@ public class RecommendBurger {
                 maxValueKey = key;
             }
         }
+        
+        maxSet.put(maxValueKey, maxValue);
 
-        return maxValueKey;
+        return maxSet;
+    }
+    
+    public HashMap<String, Integer> getSecond(String maxValueKey){
+    	int secValue = Integer.MIN_VALUE; 
+        String secValueKey = null;
+        HashMap<String, Integer> secSet = new HashMap<>();
+
+        for (Map.Entry<String, Integer> entry : selectBurgers.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+
+            if (value > secValue && key.equals(maxValueKey) == false) {
+                secValue = value;
+                secValueKey = key;
+            }
+        }
+        
+        secSet.put(secValueKey, secValue);
+
+        return secSet;
+    }
+    
+    public HashMap<String, Integer> getThird(String maxValueKey, String secValueKey){
+    	int thirdValue = Integer.MIN_VALUE; 
+        String thirdValueKey = null;
+        HashMap<String, Integer> thirdSet = new HashMap<>();
+
+        for (Map.Entry<String, Integer> entry : selectBurgers.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+
+            if (value > thirdValue && key.equals(maxValueKey) == false && key.equals(secValueKey) == false) {
+                thirdValue = value;
+                thirdValueKey = key;
+            }
+        }
+        
+        thirdSet.put(thirdValueKey, thirdValue);
+
+        return thirdSet;
     }
     
 	public HashMap<String, Integer> getSelectBurgers() {
 		return selectBurgers;
 	}
 
-	public void setSelectBurgers(HashMap<String, Integer> selectBurgers) {
-		this.selectBurgers = selectBurgers;
-	}
-
 	public ArrayList<String> getBurgersToRecommend() {
 		return burgersToRecommend;
 	}
 
-	public void setBurgersToRecommend(ArrayList<String> burgersToReommend) {
-		this.burgersToRecommend = burgersToReommend;
-	}
 }
