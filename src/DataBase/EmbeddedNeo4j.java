@@ -149,27 +149,4 @@ public class EmbeddedNeo4j implements AutoCloseable{
     		return ingredients;
     	}
     }
-    
-    public String insertMovie(String title, int releaseYear, String tagline) {
-    	try ( Session session = driver.session() ) {
-   		 
-   		 String result = session.writeTransaction( new TransactionWork<String>()
-   		 
-            {
-                @Override
-                public String execute( Transaction tx )
-                {
-                    tx.run( "CREATE (Test:Movie {title:'" + title + "', released:"+ releaseYear +", tagline:'"+ tagline +"'})");
-                    
-                    return "OK";
-                }
-            }
-   		 
-   		 );
-            
-            return result;
-        } catch (Exception e) {
-        	return e.getMessage();
-        }
-    }
 }
