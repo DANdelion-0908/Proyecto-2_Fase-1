@@ -148,13 +148,7 @@ public class App {
                     } else if(mainOpt == 2) {
                     	try ( EmbeddedNeo4j db = new EmbeddedNeo4j( "bolt://54.174.202.194:7687", "neo4j", "beginner-lieutenants-haul" ) ) {
                             
-                        	LinkedList<String> mcBurgers = db.getMcBurgers();
-                        	
-                        	System.out.println("Las Hamburguesas ofrecidas por McDonald's son: \n");
-                            
-                            for (int i = 0; i < mcBurgers.size(); i++) {
-                                System.out.println(mcBurgers.get(i));   
-                            }
+                        	LinkedList<String> mcBurgers = db.getMcBurgers();                        	
                             
                             for (String mcName : mcBurgers) {
                             	ArrayList<String> value = db.getIngredients("McBurger", mcName);
@@ -166,12 +160,6 @@ public class App {
                             
                             LinkedList<String> dpBurgers = db.getDpBurgers();
                             
-                        	System.out.println("Las Hamburguesas ofrecidas por DelPuente son: \n");
-                            
-                            for (int i = 0; i < dpBurgers.size(); i++) {
-                                System.out.println(dpBurgers.get(i));
-                            }
-                            
                             for (String dpName : dpBurgers) {
                             	ArrayList<String> value = db.getIngredients("DpBurger", dpName);
                             	
@@ -180,13 +168,7 @@ public class App {
                             
                             System.out.println("");
                             
-                            LinkedList<String> wdBurgers = db.getWdBurgers();
-                            
-                        	System.out.println("Las Hamburguesas ofrecidas por Wendy's son: \n");
-                            
-                            for (int i = 0; i < wdBurgers.size(); i++) {
-                                System.out.println(wdBurgers.get(i));
-                            }
+                            LinkedList<String> wdBurgers = db.getWdBurgers();                           
                             
                             for (String wdName : wdBurgers) {
                             	ArrayList<String> value = db.getIngredients("WdBurger", wdName);
@@ -196,11 +178,9 @@ public class App {
                             
                             createBurger.getMap(burgersHashMap.getburgersIngredients());
 
-                            System.out.println("");
-                            
-                            System.out.println("Los ingredientes de cada hamburguesa son: \n");
+                            System.out.println("\n");
                         	
-                        	burgersHashMap.showMap();
+                        	burgersHashMap.showMap(mcBurgers, dpBurgers, wdBurgers);
                         	
                         	App.main(args);
 
