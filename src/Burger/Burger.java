@@ -23,32 +23,47 @@ public class Burger {
  * object.
  */
     public void BreadSelection() {
-        System.out.println("¿Qué clase de pan prefieres?");
-        System.out.println("1. Pan blanco o tradicional.");
-        System.out.println("2. Pan con semillas de sésamo.");
-        System.out.println("3. Pan artesanal");
-    
-        System.out.print("Tu opción:");
-        int breadOption = inputScanner.nextInt();
-        inputScanner.nextLine();
-        System.out.println("");
-    
-        switch (breadOption) {
-            case 1:
-                setBread("Pan Blanco");
-            
-            break;
+    	
+    	int i = 0;
+    	while(i == 0) {
+    		try {
+    			System.out.println("¿Qué clase de pan prefieres?");
+    	        System.out.println("1. Pan blanco o tradicional.");
+    	        System.out.println("2. Pan con semillas de sésamo.");
+    	        System.out.println("3. Pan artesanal");
+    	    
+    	        System.out.print("Tu opción:");
+    	        int breadOption = inputScanner.nextInt();
+    	        inputScanner.nextLine();
+    	        System.out.println("");
+    	    
+    	        switch (breadOption) {
+    	            case 1:
+    	            	i = 1;
+    	                setBread("Pan Blanco");
+    	            
+    	            break;
 
-            case 2:
-                setBread("Pan con Semillas de Sésamo");
+    	            case 2:
+    	            	i = 1;
+    	                setBread("Pan con Semillas de Sésamo");
 
-            break;
+    	            break;
 
-            case 3:
-                setBread("Pan Artesanal");
+    	            case 3:
+    	            	i = 1;
+    	                setBread("Pan Artesanal");
 
-            break;    
-        }
+    	            break;    
+    	            
+    	            default:
+    	            	System.out.println("Ingresa una opción válida\n");
+    	        }
+    		} catch (Exception e) {
+    			System.out.println("Ingresa caracteres válidos\n");
+    			inputScanner.nextLine();
+    		}
+    	}
         
         System.out.println("Haz seleccionado " + getBread() + " como tu preferido. \n");
         burgerUnit.add(bread);

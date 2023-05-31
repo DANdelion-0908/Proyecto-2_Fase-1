@@ -33,21 +33,10 @@ public class RecommendBurger {
     	return selectBurgers;
     }
     
-    public int getMaxValue() {
+    public HashMap<String, Integer> getMax() {
         int maxValue = Integer.MIN_VALUE; 
-
-        for (int value : selectBurgers.values()) {
-            if (value > maxValue) {
-                maxValue = value;
-            }
-        }
-
-        return maxValue;
-    }
-    
-    public  String getMaxValueKey() {
-        int maxValue = Integer.MIN_VALUE; 
-        String maxValueKey = null; 
+        String maxValueKey = null;
+        HashMap<String, Integer> maxSet = new HashMap<>();
 
         for (Map.Entry<String, Integer> entry : selectBurgers.entrySet()) {
             String key = entry.getKey();
@@ -58,9 +47,13 @@ public class RecommendBurger {
                 maxValueKey = key;
             }
         }
+        
+        maxSet.put(maxValueKey, maxValue);
 
-        return maxValueKey;
+        return maxSet;
     }
+    
+    
     
 	public HashMap<String, Integer> getSelectBurgers() {
 		return selectBurgers;

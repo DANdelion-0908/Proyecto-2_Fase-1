@@ -106,25 +106,39 @@ public class App {
                 
                 System.out.println("-------------------------------------------------\n");
                 
-                System.out.printf("La hamburguesa con la mayor cantidad de coincidencias es: %s con %d puntos.\n\n", makeRecommendation.getMaxValueKey(), makeRecommendation.getMaxValue());
+                System.out.printf("La hamburguesa con la mayor cantidad de coincidencias es: %s con %d puntos.\n\n", makeRecommendation.getMax().entrySet().iterator().next().getKey(), makeRecommendation.getMax().entrySet().iterator().next().getValue());
                 
-                System.out.println("¿Desea volver al menú principal?\n");
-                
-                System.out.println("1. Volver al Menú.");
-                System.out.println("2. Salir \n");
-                
-                System.out.print("Tu opción: ");
-                int lastOpt = inputScanner.nextInt();
-                System.out.println("");
-                
-                switch(lastOpt) {
-                	case 1:
-                		App.main(args);
-                	break;
-                	
-                	case 2:
-                		System.out.println("Saliendo...");
-                		System.exit(0);
+                int i = 0;
+                while(i == 0) {
+                	try {
+                		System.out.println("¿Desea volver al menú principal?\n");
+                        
+                        System.out.println("1. Volver al Menú.");
+                        System.out.println("2. Salir \n");
+                        
+                        System.out.print("Tu opción: ");
+                        int lastOpt = inputScanner.nextInt();
+                        inputScanner.nextLine();
+                        System.out.println("");
+                        
+                        switch(lastOpt) {
+                        	case 1:
+                        		i = 1;
+                        		App.main(args);
+                        	break;
+                        	
+                        	case 2:
+                        		i = 1;
+                        		System.out.println("Saliendo...");
+                        		System.exit(0);
+                        		
+                        	default:
+                        		System.out.println("Ingresa una opción válida\n");
+                        }
+                	} catch (Exception e) {
+                		System.out.println("Ingresa caracteres válidos\n");
+            			inputScanner.nextLine();
+                	}
                 }
 
             } else if(mainOpt == 2) {
