@@ -27,13 +27,13 @@ public class BurgersAndIngredients {
 			
 			ArrayList<String> ingredients = burgersIngredients.get(key);
 			if(MC.contains(key) == true) {
-				MCham = MCham + key + ": " + ingredients + "\n";
+				MCham = MCham + "- " + key + ": " + ingredients + "\n";
 			}
 			else if(DP.contains(key) == true) {
-				DPham = DPham + key + ": " + ingredients + "\n";
+				DPham = DPham + "- " + key + ": " + ingredients + "\n";
 			}
 			else if(WD.contains(key) == true) {
-				WDham = WDham + key + ": " + ingredients + "\n";
+				WDham = WDham + "- " + key + ": " + ingredients + "\n";
 			}
 		}
 		System.out.println(MCham + "\n" + DPham + "\n" + WDham);
