@@ -107,6 +107,8 @@ public class App {
                 System.out.println("-------------------------------------------------\n");
                 
                 System.out.printf("La hamburguesa con la mayor cantidad de coincidencias es: %s con %d puntos.\n\n", makeRecommendation.getMax().entrySet().iterator().next().getKey(), makeRecommendation.getMax().entrySet().iterator().next().getValue());
+                System.out.printf("La hamburguesa con la segunda mayor cantidad de coincidencias es: %s con %d puntos.\n\n", makeRecommendation.getSecond(makeRecommendation.getMax().entrySet().iterator().next().getKey()).entrySet().iterator().next().getKey(), makeRecommendation.getSecond(makeRecommendation.getMax().entrySet().iterator().next().getKey()).entrySet().iterator().next().getValue());
+                System.out.printf("La hamburguesa con la tercera mayor cantidad de coincidencias es: %s con %d puntos.\n\n", makeRecommendation.getThird(makeRecommendation.getSecond(makeRecommendation.getMax().entrySet().iterator().next().getKey()).entrySet().iterator().next().getValue()).entrySet().iterator().next().getKey(), makeRecommendation.getThird(makeRecommendation.getSecond(makeRecommendation.getMax().entrySet().iterator().next().getKey()).entrySet().iterator().next().getValue()).entrySet().iterator().next().getValue());
                 
                 int i = 0;
                 while(i == 0) {

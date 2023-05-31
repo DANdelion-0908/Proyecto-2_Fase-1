@@ -53,7 +53,45 @@ public class RecommendBurger {
         return maxSet;
     }
     
+    public HashMap<String, Integer> getSecond(String maxValueKey){
+    	int secValue = Integer.MIN_VALUE; 
+        String secValueKey = null;
+        HashMap<String, Integer> secSet = new HashMap<>();
+
+        for (Map.Entry<String, Integer> entry : selectBurgers.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+
+            if (value > secValue && key.equals(maxValueKey) == false) {
+                secValue = value;
+                secValueKey = key;
+            }
+        }
+        
+        secSet.put(secValueKey, secValue);
+
+        return secSet;
+    }
     
+    public HashMap<String, Integer> getThird(int secValueKey){
+    	int thirdValue = Integer.MIN_VALUE; 
+        String thirdValueKey = null;
+        HashMap<String, Integer> thirdSet = new HashMap<>();
+
+        for (Map.Entry<String, Integer> entry : selectBurgers.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+
+            if (value > thirdValue && key.equals(secValueKey) == false) {
+                thirdValue = value;
+                thirdValueKey = key;
+            }
+        }
+        
+        thirdSet.put(thirdValueKey, thirdValue);
+
+        return thirdSet;
+    }
     
 	public HashMap<String, Integer> getSelectBurgers() {
 		return selectBurgers;
