@@ -190,90 +190,105 @@ public void VegetablesSelection() {
                 	i = 1;
                 	int j = 0;
                 	while(j==0) {
-                    	System.out.println("¿Deseas agregar tomate?");
-                    	System.out.println("1. Si.");
-                    	System.out.println("2. No.");
-                    	
-                    	System.out.print("Tu opción: ");
-                    	int tomatoOptions = inputScanner.nextInt();
-                    	inputScanner.nextLine();
-                    	System.out.println();
-                    	
-                    	switch (tomatoOptions) {
-                    		case 1:
-                    			j = 1;
-                    			setTomato("Tomate");
-                    			burgerUnit.add(tomato);
-                    		
-                    			break;
-                    	
-                    		case 2:
-                    			j = 1;
-                    			System.out.println("No agregaste tomate");
-                    			break;
-                    	
-                    		default:
-                    			System.out.println("Ingresa una opción válida\n");
+                		try {
+                        	System.out.println("¿Deseas agregar tomate?");
+                        	System.out.println("1. Si.");
+                        	System.out.println("2. No.");
+                        	
+                        	System.out.print("Tu opción: ");
+                        	int tomatoOptions = inputScanner.nextInt();
+                        	inputScanner.nextLine();
+                        	System.out.println();
+                        	
+                        	switch (tomatoOptions) {
+                        		case 1:
+                        			j = 1;
+                        			setTomato("Tomate");
+                        			burgerUnit.add(tomato);
+                        		
+                        			break;
+                        	
+                        		case 2:
+                        			j = 1;
+                        			System.out.println("No agregaste tomate");
+                        			break;
+                        	
+                        		default:
+                        			System.out.println("Ingresa una opción válida\n");
+                    		}
+                		} catch (Exception e) {
+                			System.out.println("Ingresa caracteres válidos\n");
+                			inputScanner.nextLine();
                 		}
                 	}
                 	int k = 0;
                 	while(k==0) {
-                		System.out.println("¿Deseas agregar lechuga?");
-                    	System.out.println("1. Si.");
-                    	System.out.println("2. No.");
-                    	
-                    	System.out.print("Tu opción: ");
-                    	int lettuceOptions = inputScanner.nextInt();
-                    	inputScanner.nextLine();
-                    	System.out.println();
-                    	
-                    	switch (lettuceOptions) {
-                    		case 1:
-                    			k = 1;
-                    			setLettuce("Lechuga");
-                    			burgerUnit.add(lettuce);
-                    		
-                    			break;
-                    	
-                    		case 2:
-                    			k = 1;
-                    			System.out.println("No agregaste lechuga");
-                    		
-                    			break;
-                    			
-                    		default:
-                    			System.out.println("Ingresa una opción válida\n");
-                    	}
+                		try {
+                			System.out.println("¿Deseas agregar lechuga?");
+                        	System.out.println("1. Si.");
+                        	System.out.println("2. No.");
+                        	
+                        	System.out.print("Tu opción: ");
+                        	int lettuceOptions = inputScanner.nextInt();
+                        	inputScanner.nextLine();
+                        	System.out.println();
+                        	
+                        	switch (lettuceOptions) {
+                        		case 1:
+                        			k = 1;
+                        			setLettuce("Lechuga");
+                        			burgerUnit.add(lettuce);
+                        		
+                        			break;
+                        	
+                        		case 2:
+                        			k = 1;
+                        			System.out.println("No agregaste lechuga");
+                        		
+                        			break;
+                        			
+                        		default:
+                        			System.out.println("Ingresa una opción válida\n");
+                        	}
+                		} catch (Exception e) {
+                			System.out.println("Ingresa caracteres válidos\n");
+                			inputScanner.nextLine();
+                		}
                 	}
                 	
                 	int l = 0;
                 	while(l == 0) {
-                		System.out.println("¿Deseas agregar cebolla?");
-                    	System.out.println("1. Si.");
-                    	System.out.println("2. No.");
-                    	
-                    	System.out.print("Tu opción: ");
-                    	int onionOptions = inputScanner.nextInt();
-                    	inputScanner.nextLine();
-                    	System.out.println();
-                    	
-                    	switch (onionOptions) {
-                    		case 1:
-                    			l = 1;
-                    			setOnion("Cebolla");
-                    			burgerUnit.add(onion);
-                    		
-                    			break;
-                    	
-                    		case 2:
-                    			l = 1;
-                    			System.out.println("No agregaste cebolla");
-                    		
-                    			break;
-                    			
-                    		default:
-                    			System.out.println("Ingresa una opción válida\n");
-                    	}
+                		try {
+                			System.out.println("¿Deseas agregar cebolla?");
+                        	System.out.println("1. Si.");
+                        	System.out.println("2. No.");
+                        	
+                        	System.out.print("Tu opción: ");
+                        	int onionOptions = inputScanner.nextInt();
+                        	inputScanner.nextLine();
+                        	System.out.println();
+                        	
+                        	switch (onionOptions) {
+                        		case 1:
+                        			l = 1;
+                        			setOnion("Cebolla");
+                        			burgerUnit.add(onion);
+                        		
+                        			break;
+                        	
+                        		case 2:
+                        			l = 1;
+                        			System.out.println("No agregaste cebolla");
+                        		
+                        			break;
+                        			
+                        		default:
+                        			System.out.println("Ingresa una opción válida\n");
+                        	}
+                		} catch (Exception e) {
+                			System.out.println("Ingresa caracteres válidos\n");
+                			inputScanner.nextLine();
+                		}
                 	}
                 	
                 break;
@@ -287,6 +302,7 @@ public void VegetablesSelection() {
                 	System.out.println("Ingresa una opción válida\n");
             }
     	} catch (Exception e) {
+    		i = 0;
     		System.out.println("Ingresa caracteres válidos\n");
 			inputScanner.nextLine();
     	}
