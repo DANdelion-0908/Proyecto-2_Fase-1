@@ -73,7 +73,7 @@ public class RecommendBurger {
         return secSet;
     }
     
-    public HashMap<String, Integer> getThird(int secValueKey){
+    public HashMap<String, Integer> getThird(String maxValueKey, String secValueKey){
     	int thirdValue = Integer.MIN_VALUE; 
         String thirdValueKey = null;
         HashMap<String, Integer> thirdSet = new HashMap<>();
@@ -82,7 +82,7 @@ public class RecommendBurger {
             String key = entry.getKey();
             int value = entry.getValue();
 
-            if (value > thirdValue && key.equals(secValueKey) == false) {
+            if (value > thirdValue && key.equals(maxValueKey) == false && key.equals(secValueKey) == false) {
                 thirdValue = value;
                 thirdValueKey = key;
             }
