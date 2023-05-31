@@ -83,6 +83,7 @@ public class App {
                         createBurger.BreadSelection();
                         createBurger.MeatSelection();
                         createBurger.VegetablesSelection();
+                        createBurger.ExtraSelection();
                         createBurger.CheeseSelection();
                         createBurger.showMenu();
                         

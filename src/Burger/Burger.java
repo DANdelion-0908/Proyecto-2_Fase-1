@@ -13,6 +13,8 @@ public class Burger {
     private String lettuce;
     private String onion;
     private String cheese;
+    private String pickle;
+    private String bacon;
 
     private ArrayList<String> burgerUnit = new ArrayList<>();
     
@@ -171,6 +173,107 @@ public void CheeseSelection() {
     burgerUnit.add(cheese);
 }
 
+public void ExtraSelection() {
+	
+	int i = 0;
+	while(i == 0) {
+		try {
+			System.out.println("¿Deseas agregar extras?");
+            System.out.println("1. Sí.");
+            System.out.println("2. No");
+
+            System.out.print("Tu opción: ");
+            int extrasOption = inputScanner.nextInt();
+            inputScanner.nextLine();
+            System.out.println("");
+            
+            switch(extrasOption) {
+            	case 1:
+            		i = 1;
+            		int j = 0;
+                	while(j==0) {
+                		try {
+                        	System.out.println("¿Deseas agregar tocino?");
+                        	System.out.println("1. Si.");
+                        	System.out.println("2. No.");
+                        	
+                        	System.out.print("Tu opción: ");
+                        	int baconOptions = inputScanner.nextInt();
+                        	inputScanner.nextLine();
+                        	System.out.println();
+                        	
+                        	switch (baconOptions) {
+                        		case 1:
+                        			j = 1;
+                        			setBacon("Tocino");
+                        			burgerUnit.add(bacon);
+                        		
+                        			break;
+                        	
+                        		case 2:
+                        			j = 1;
+                        			System.out.println("No agregaste tocino");
+                        			break;
+                        	
+                        		default:
+                        			System.out.println("Ingresa una opción válida\n");
+                    		}
+                		} catch (Exception e) {
+                			System.out.println("Ingresa caracteres válidos\n");
+                			inputScanner.nextLine();
+                		}
+                	}
+                	int k = 0;
+                	while(k==0) {
+                		try {
+                        	System.out.println("¿Deseas agregar pepinillos?");
+                        	System.out.println("1. Si.");
+                        	System.out.println("2. No.");
+                        	
+                        	System.out.print("Tu opción: ");
+                        	int pickleOptions = inputScanner.nextInt();
+                        	inputScanner.nextLine();
+                        	System.out.println();
+                        	
+                        	switch (pickleOptions) {
+                        		case 1:
+                        			k = 1;
+                        			setPickle("Pepinillos");
+                        			burgerUnit.add(pickle);
+                        		
+                        			break;
+                        	
+                        		case 2:
+                        			k = 1;
+                        			System.out.println("No agregaste pepinillos");
+                        			break;
+                        	
+                        		default:
+                        			System.out.println("Ingresa una opción válida\n");
+                    		}
+                		} catch (Exception e) {
+                			System.out.println("Ingresa caracteres válidos\n");
+                			inputScanner.nextLine();
+                		}
+                	}
+                	
+                break;
+                	
+            	case 2:
+            		i = 1;
+                    System.out.println("Has elegido sin extras. \n");
+                break;
+                
+                default:
+                	System.out.println("Ingresa una opción válida\n");
+            }
+		} catch (Exception e) {
+			System.out.println("Ingresa caracteres válidos\n");
+			inputScanner.nextLine();
+		}
+	}
+}
+
 public void VegetablesSelection() {
     
 	int i = 0;
@@ -289,7 +392,7 @@ public void VegetablesSelection() {
                 			System.out.println("Ingresa caracteres válidos\n");
                 			inputScanner.nextLine();
                 		}
-                	}
+                	}              
                 	
                 break;
             
@@ -362,5 +465,17 @@ public ArrayList<String> showRecommendation() {
     }
     public String getCheese() {
     	return cheese;
+    }
+    public void setPickle(String pickle) {
+    	this.pickle = pickle;
+    }
+    public String getPickle() {
+    	return pickle;
+    }
+    public void setBacon(String bacon) {
+    	this.bacon = bacon;
+    }
+    public String getBacon() {
+    	return bacon;
     }
 }
